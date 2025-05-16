@@ -103,4 +103,10 @@ if (!function_exists("mysql_error")){
     }
 }
 
+if(!function_exists("mysql_insert_id")){
+    function mysql_insert_id(){
+        global $GLOBAL_MySQLi;
+        return $GLOBAL_MySQLi->insert_id;
+    }
+}
 

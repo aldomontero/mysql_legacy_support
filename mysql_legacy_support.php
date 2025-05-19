@@ -110,3 +110,28 @@ if(!function_exists("mysql_insert_id")){
     }
 }
 
+
+if (!function_exists("mysql_data_seek")){
+    function mysql_data_seek($result, $pointer){
+        if($result !== null){
+            $result->data_seek($pointer);
+        }
+    }
+}
+
+if(!function_exists("get_magic_quotes_runtime")){
+    function get_magic_quotes_runtime(){
+        return false;
+    }
+}
+
+if(!function_exists("each")){
+    function each(&$arr) {
+        $key = key($arr);
+        $result = ($key === null) ? false : [$key, current($arr), 'key' => $key, 'value' => current($arr)];
+        next($arr);
+        return $result;
+    }
+}
+
+
